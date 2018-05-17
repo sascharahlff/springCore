@@ -2,6 +2,7 @@ package guru.springframework.services;
 
 import guru.springframework.domain.Product;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -24,6 +25,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> listAllProducts() {
         return new ArrayList<>(products.values());
+    }
+
+    @Override
+    public Product getProductById(Integer id) {
+        return products.get(id);
     }
 
     private void loadProducts(){
