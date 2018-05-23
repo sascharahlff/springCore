@@ -2,8 +2,8 @@ package guru.springframework.services;
 
 import guru.springframework.domain.DomainObject;
 import guru.springframework.domain.Product;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -13,6 +13,7 @@ import java.util.List;
  * Created by jt on 11/6/15.
  */
 @Service
+@Profile("map")
 public class ProductServiceImpl extends AbstractMapService implements ProductService {
 
     @Override
@@ -72,7 +73,7 @@ public class ProductServiceImpl extends AbstractMapService implements ProductSer
 
         Product product5 = new Product();
         product5.setId(5);
-        product5.setDescription("Product 2");
+        product5.setDescription("Product 5");
         product5.setPrice(new BigDecimal("25.99"));
         product5.setImageUrl("http://example.com/product5");
 

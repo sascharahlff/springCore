@@ -114,7 +114,6 @@ public class CustomerControllerTest {
 
         when(customerService.saveOrUpdate(Matchers.<Customer>any())).thenReturn(returnCustomer);
 
-        // Test Request
         mockMvc.perform(post("/customer")
         .param("id", "1")
         .param("firstName", firstName)
@@ -139,7 +138,6 @@ public class CustomerControllerTest {
                 .andExpect(model().attribute("customer", hasProperty("email", is(email))))
                 .andExpect(model().attribute("customer", hasProperty("phoneNumber", is(phoneNumber))));
 
-        // Make sure, all customer properties are bound correctly
         ArgumentCaptor<Customer> customerCaptor = ArgumentCaptor.forClass(Customer.class);
         verify(customerService).saveOrUpdate(customerCaptor.capture());
 
@@ -155,5 +153,7 @@ public class CustomerControllerTest {
         assertEquals(zipCode, boundCustomer.getZipCode());
         assertEquals(email, boundCustomer.getEmail());
         assertEquals(phoneNumber, boundCustomer.getPhoneNumber());
+
+
     }
 }
