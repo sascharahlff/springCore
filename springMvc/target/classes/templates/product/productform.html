@@ -11,7 +11,7 @@
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 
-    <link href="../static/css/spring-core.css"
+    <link href="../../static/css/spring-core.css"
           th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
 </head>
 <body>
@@ -21,6 +21,7 @@
     <div>
         <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
             <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}"/>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Description:</label>
                 <div class="col-sm-10">
