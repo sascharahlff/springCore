@@ -1,7 +1,7 @@
 package guru.springframework.services;
 
 import guru.springframework.config.JpaIntegrationConfig;
-import guru.springframework.domain.Product;
+import guru.springframework.domain.Customer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +17,20 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(JpaIntegrationConfig.class)
 @ActiveProfiles("jpadao")
-public class ProductServiceJapDaoImplTest {
+public class CustomerServiceJpaDaoImplTest {
 
-    private ProductService productService;
+    private CustomerService customerService;
 
     @Autowired
-    public void setProductService(ProductService productService) {
-        this.productService = productService;
+    public void setCustomerService(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
     @Test
-    public void testListMethod() throws Exception {
+    public void testList() throws Exception {
+        List<Customer> customers = (List<Customer>) customerService.listAll();
 
-        List<Product> products = (List<Product>) productService.listAll();
-
-        assert products.size() == 5;
+        assert customers.size() == 3;
 
     }
 }
