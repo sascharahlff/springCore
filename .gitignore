@@ -5,7 +5,7 @@
 .idea
 
 #Maven
-target/*
+target/
 
 #OSX
 .DS_Store
